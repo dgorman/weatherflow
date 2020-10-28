@@ -6,7 +6,7 @@ RUN pip install influxdb
 	
 ENV INFLUXDB_HOST=192.168.50.4
 ENV INFLUXDB_PORT=8086
-ENV INFLUXDB_DB=weatherstation
+ENV INFLUXDB_DB=weatherflow
 
 COPY listen.py /usr/local/bin
 CMD python /usr/local/bin/listen.py --influxdb --influxdb_host=$INFLUXDB_HOST --influxdb_port=$INFLUXDB_PORT --influxdb_db=$INFLUXDB_DB -M 2>&1 > /var/log/weatherflow.log
